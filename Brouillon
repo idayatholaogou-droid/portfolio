@@ -371,32 +371,38 @@
   <nav>
     <div class="nav-logo">Initiales.dev</div>
     <ul class="nav-links">
-      <li><a href="#accueil">Accueil</a></li>
-      <li><a href="#apropos">À propos</a></li>
-      <li><a href="#competences">Compétences</a></li>
-      <li><a href="#projets">Projets</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#Accueil">Accueil</a></li>
+      <li><a href="#A propos">À propos</a></li>
+      <li><a href="#Compétences">Compétences</a></li>
+      <li><a href="#Projets">Projets</a></li>
+      <li><a href="#Contact">Contact</a></li>
+      <li><a href="#cv">CV</a></li>
     </ul>
   </nav>
 
   <section id="accueil" style="max-width:100%; padding-left:4rem; padding-right:4rem;">
     <div class="hero-grid"></div>
     <div class="hero-content">
-      <p class="hero-tag">Informaticienne · Développeuse</p>
-      <h1 class="hero-name"><span>OLAOGOU</span><br>Hidayath Adoukè</h1>
-      <p>Je suis Hidayath Adoukè OLAOGOU étudiante en 2ème année en Système Informatique et Logiciel .
-         Passionnée de la médecine; le destin a décidé de me faire plonger dans l'informatique. Je ne 
-         regrette pas cela car aujourdh'ui je suis déterminée à produire des choses dynamiques qui aura 
-         rapport à la médecine. Tellement fière de moi. J'avoue que ce n'est pas du tout facile mais je me plains pas.
-        Je passe de cette occasion pour vous faire part de l'un de mes rêves, tout ce que j'ai pu réaliser et les matières 
-        qui m'ont fait aimer l'informatique.</p>
+      <p class="hero-tag">Informaticienne · Développeuse Web/Mobile/Logiciel </p>
+      <h1 class="hero-name"><span>OLAOGOU</span><br>Idayath Adoukè</h1>
+      <img src="images/Idayath.jpg" alt="Idayath Adoukè OLAOGOU" style="width:150px; height:150px; border-radius:50%; margin-bottom:1rem;">
+      <p>Je suis Idayath Adoukè OLAOGOU, étudiante en Licence 3 en Système Informatique et Logiciel à l'Université Africaine de Technologie et de 
+        Management (UATM) GASA Formation.
+        Passionnée de médecine depuis mon plus jeune âge, c'est finalement vers l'informatique que le hasard m'a conduite. 
+        Je ne regrette absolument pas ce choix, car je suis aujourd'hui pleinement déterminée à concevoir des applications 
+        dynamiques et innovantes au service de secteurs qui me tiennent à cœur : la médecine, l'agriculture, la culture, 
+        et bien d'autres encore. Je suis profondément fière du chemin parcouru. Je ne prétends pas que ce parcours soit 
+        facile, mais je l'aborde avec persévérance et sans une once de regret.
+        Je saisis cette occasion pour partager avec vous l'un de mes rêves les plus chers, les réalisations 
+        qui jalonnent mon parcours, ainsi que les matières qui ont su éveiller et nourrir ma passion pour l'informatique.</p>
       <p class="hero-subtitle">Passionnée par les bases de données, le développement web et la création de solutions robustes et élégantes.</p>
+      <a href="CV/Idayath_OLAOGOU_CV.pdf" class="hero-cta" download>Télécharger mon CV</a>
       <a href="#projets" class="hero-cta">Voir mes projets</a>
     </div>
     <div class="hero-line">Scroll</div>
   </section>
 
-  <section id="apropos">
+  <section id="A propos">
     <div class="section-header">
       <span class="section-num">01</span>
       <h2 class="section-title">À propos</h2>
@@ -425,7 +431,7 @@
         <div class="section-line"></div>
       </div>
 
-      <div class="skill-item"><div class="skill-label"><span class="skill-name">Base de données / Merise</span><span class="skill-pct">70%</span></div><div class="skill-track"><div class="skill-fill" data-width="70"></div></div></div>
+      <div class="skill-item"><div class="skill-label"><span class="skill-name">Base de données / Merise / UML</span><span class="skill-pct">70%</span></div><div class="skill-track"><div class="skill-fill" data-width="70"></div></div></div>
       <div class="skill-item"><div class="skill-label"><span class="skill-name">C / C++</span><span class="skill-pct">50%</span></div><div class="skill-track"><div class="skill-fill" data-width="50"></div></div></div>
       <div class="skill-item"><div class="skill-label"><span class="skill-name">HTML</span><span class="skill-pct">55%</span></div><div class="skill-track"><div class="skill-fill" data-width="55"></div></div></div>
       <div class="skill-item"><div class="skill-label"><span class="skill-name">Java</span><span class="skill-pct">60%</span></div><div class="skill-track"><div class="skill-fill" data-width="60"></div></div></div>

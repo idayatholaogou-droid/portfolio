@@ -1,0 +1,178 @@
+:root {
+    --accent: #c0392b;
+    --accent2: #8e2a1f;
+    --font-display: 'Georgia', serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Georgia', serif;
+    color: #1a1a1a;
+    background-color: #fff;
+}
+
+.head {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    z-index: 10;
+    background: rgba(0,0,0,0.30);
+    padding: 18px 0;
+}
+.head ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+.head ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: color 0.3s;
+}
+.head ul li a:hover { color: #e8c97a; }
+.head ul li a.active {
+    color: #c0392b;
+    border-bottom: 2px solid #c0392b;
+    padding-bottom: 2px;
+}
+
+.burger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 26px;
+    height: 19px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    right: 24px;
+    top: 20px;
+    z-index: 20;
+    padding: 0;
+}
+.burger span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background: #fff;
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.burger.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.burger.open span:nth-child(2) { opacity: 0; }
+.burger.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+.category-title {
+    text-align: center; 
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    font-weight: 300;
+    color: var(--accent);
+    margin: 3rem 0 1.5rem;
+}
+
+/* ---------- Carte de projet : image en haut, texte en dessous ---------- */
+.project-card {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border: 1px solid #e3e3e3;
+    border-top: 4px solid #c0392b;
+    border-radius: 6px;
+    overflow: hidden;
+    padding: 0;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.project-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+}
+
+/* L'image passe en premier, sans changer le HTML */
+.project-image {
+    order: -1;
+    position: static;
+    display: block;
+    width: 50%;
+    height: 100px;
+    margin: 0;
+    object-fit: cover;
+    object-position: top;
+}
+
+/* On supprime le dégradé de la version précédente */
+.project-card::after { content: none; }
+
+/* Textes */
+.project-tag,
+.project-title,
+.project-desc,
+.project-techs {
+    position: static;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.project-tag {
+    padding-top: 20px;
+    font-family: Arial, sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #c0392b;
+    font-weight: 300px;
+}
+
+.project-title {
+    padding-top: 20px;
+    padding-bottom: 8px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1a1a1a;
+}
+
+.project-desc {
+    flex: 1;                 /* pousse les tags en bas de chaque carte */
+    font-size: 0.9rem;
+    line-height: 1;
+    color: #555;
+}
+.project-desc strong { color: #1a1a1a; font-weight: 700; }
+.project-desc a { color: #c0392b; text-decoration: none; }
+.project-desc a:hover { text-decoration: underline; }
+
+/* ---------- Technologies : petits rectangles ---------- */
+.project-techs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding-top: 16px;
+    padding-bottom: 20px;
+}
+.tech-tag {
+    font-family: 'Courier New', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    background: #fff;
+    color: #333;
+}
+
+@media (max-width: 900px) {
+    .projects-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+    .projects-grid { grid-template-columns: 1fr; }
+}
