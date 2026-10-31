@@ -12,6 +12,7 @@ body {
     background-color: #fff;
 }
 
+/* ---------- Navigation ---------- */
 .head {
     position: absolute;
     top: 0; left: 0;
@@ -43,6 +44,7 @@ body {
     padding-bottom: 2px;
 }
 
+/* ---------- Burger ---------- */
 .burger {
     display: none;
     flex-direction: column;
@@ -70,6 +72,88 @@ body {
 .burger.open span:nth-child(2) { opacity: 0; }
 .burger.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
+/* ---------- Section Projets : en-tête ---------- */
+.projects-section {
+    position: relative;
+    padding-top: 110px;            /* dégage la navigation en position absolute */
+    background: #fafafa;
+    overflow: hidden;
+}
+
+.section-number {
+    position: absolute;
+    top: -10px;
+    right: 48px;
+    font-family: Arial, sans-serif;
+    font-size: 8rem;
+    font-weight: 800;
+    line-height: 1;
+    color: #eee;
+    pointer-events: none;
+    user-select: none;
+}
+
+.projects-header { padding-left: 48px; padding-right: 48px; }
+
+.section-label {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent);
+}
+.section-label::before {
+    content: '';
+    width: 30px;
+    height: 1px;
+    background: #999;
+}
+
+.section-title {
+    margin: 24px 0 20px;
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    font-weight: 700;
+    line-height: 1.1;
+    color: #0d0d0d;
+}
+
+.section-subtitle {
+    font-size: 1.05rem;
+    color: #555;
+}
+
+/* ---------- Onglets de filtre ---------- */
+.filter-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin: 56px 48px 0;
+    border-bottom: 1px solid #ddd;
+}
+.filter-tab {
+    padding: 14px 0;
+    margin-bottom: -1px;           /* l'onglet actif recouvre la bordure grise */
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    font-family: 'Courier New', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #555;
+    cursor: pointer;
+    transition: color 0.3s, border-color 0.3s;
+}
+.filter-tab:hover { color: var(--accent); }
+.filter-tab.active {
+    color: #0d0d0d;
+    border-bottom-color: #0d0d0d;
+}
+
+/* ---------- Titres de catégorie ---------- */
 .category-title {
     font-family: var(--font-display);
     font-size: 1.6rem;
@@ -78,6 +162,7 @@ body {
     margin: 3rem 0 1.5rem;
 }
 
+/* ---------- Grille de projets : 3 colonnes ---------- */
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -85,6 +170,7 @@ body {
     align-items: stretch;
 }
 
+/* ---------- Carte de projet ---------- */
 .project-card {
     display: flex;
     flex-direction: column;
@@ -139,6 +225,7 @@ body {
 .project-desc a { color: #c0392b; text-decoration: none; overflow-wrap: anywhere; }
 .project-desc a:hover { text-decoration: underline; }
 
+/* ---------- Technologies ---------- */
 .project-techs {
     display: flex;
     flex-wrap: wrap;
@@ -157,93 +244,135 @@ body {
     color: #333;
 }
 
-[hidden] { display: none !important; }   
-
-.projects-section {
-    position: relative;
-    padding-top: 110px;           
-    background: #fafafa;
-    overflow: hidden;
+/* ---------- Section Diagrammes de cas d'utilisation ---------- */
+.section-header {
+    text-align: center;
+    margin-bottom: 50px;
 }
-
-.section-number {
-    position: absolute;
-    top: -10px;
-    right: 48px;
-    font-family: Arial, sans-serif;
-    font-size: 8rem;
-    font-weight: 800;
-    line-height: 1;
-    color: #eee;
-    pointer-events: none;
-    user-select: none;
-}
-
-.section-header,
-.filter-tabs { padding-left: 48px; padding-right: 48px; }
-
-.section-label {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    font-family: 'Courier New', monospace;
+.section-header .tag {
     font-size: 0.75rem;
     letter-spacing: 3px;
     text-transform: uppercase;
-    color: var(--accent);
-}
-.section-label::before {
-    content: '';
-    width: 30px;
-    height: 1px;
-    background: #999;
-}
-
-.section-title {
-    margin: 24px 0 20px;
-    font-size: clamp(2.4rem, 5vw, 4rem);
+    color: #c0392b;
+    font-family: Arial, sans-serif;
     font-weight: 700;
-    line-height: 1.1;
-    color: #0d0d0d;
+}
+.section-header h2 {
+    font-size: 2.2rem;
+    color: #1a1a1a;
+    margin-top: 10px;
+    font-weight: 700;
+}
+.section-header .divider {
+    width: 60px;
+    height: 3px;
+    background: #c0392b;
+    margin: 16px auto 0;
 }
 
-.section-subtitle {
-    font-size: 1.05rem;
-    color: #555;
+.historiques-section {
+    background: #f7f4f0;
+    padding: 80px 40px;
 }
 
-.filter-tabs {
+/* ---------- Diaporama ---------- */
+.diaporama {
+    position: relative;
+    max-width: 700px;
+    margin: 50px auto 0;
+    overflow: hidden;
+}
+.diaporama-track {
     display: flex;
-    flex-wrap: wrap;
-    gap: 40px;
-    margin: 56px 48px 0;
-    padding: 0;                   
-    border-bottom: 1px solid #ddd;
+    transition: transform 0.5s ease;
 }
+.diaporama-slide { flex: 0 0 100%; }
 
-.filter-tab {
-    padding: 14px 0;
-    margin-bottom: -1px;           
-    background: none;
+.diaporama-btn {
+    position: absolute;
+    top: 190px;                    /* moitié de la hauteur de l'image (380px) */
+    transform: translateY(-50%);
+    z-index: 5;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
     border: none;
-    border-bottom: 2px solid transparent;
-    font-family: 'Courier New', monospace;
-    font-size: 0.75rem;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: #555;
+    background: #c0392b;
+    color: #fff;
+    font-size: 1rem;
     cursor: pointer;
-    transition: color 0.3s, border-color 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s;
 }
-.filter-tab:hover { color: var(--accent); }
-.filter-tab.active {
-    color: #0d0d0d;
-    border-bottom-color: #0d0d0d;
+.diaporama-btn:hover { background: #a93226; }
+.diaporama-btn.prev { left: 12px; }    /* à l'intérieur : plus coupé par overflow */
+.diaporama-btn.next { right: 12px; }
+
+.diaporama-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 22px;
+}
+.diaporama-dots span {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #ddd;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+.diaporama-dots span.active { background: #c0392b; }
+
+.site-card {
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.site-card img {
+    width: 100%;
+    height: 380px;
+    object-fit: contain;           /* image entière, sans rognage */
+    background: #fff;
+    display: block;
+}
+.site-card-body {
+    padding: 22px;
+    border-top: 3px solid #c0392b;
+}
+.site-card-body .cat {
+    font-size: 0.7rem;
+    font-family: Arial, sans-serif;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #c0392b;
+    font-weight: 700;
+    margin-bottom: 6px;
+    display: block;
+}
+.site-card-body h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 10px;
+}
+.site-card-body p {
+    font-size: 0.87rem;
+    color: #666;
+    line-height: 1.75;
 }
 
+/* ---------- Responsive ---------- */
 @media (max-width: 900px) {
     .projects-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 600px) {
     .projects-grid { grid-template-columns: 1fr; }
+    .historiques-section { padding: 60px 16px; }
+    .site-card img { height: 240px; }
+    .diaporama-btn { top: 120px; }  /* moitié de 240px */
 }
