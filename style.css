@@ -6,12 +6,88 @@
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
+*, *::before, *::after { cursor: none !important; }
+
 html { scroll-behavior: smooth; }
 
 body {
     font-family: 'Georgia', serif;
     color: #1a1a1a;
     background-color: #fff;
+}
+
+.cursor-dot,
+.cursor-ring {
+    position: fixed;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    mix-blend-mode: difference;
+    will-change: left, top, width, height;
+}
+
+.cursor-dot {
+    width: 6px;
+    height: 6px;
+    background: #fff;
+    z-index: 100001;
+    transition: width 0.2s ease, height 0.2s ease, opacity 0.2s ease;
+}
+
+.cursor-ring {
+    width: 40px;
+    height: 40px;
+    border: 1.5px solid #fff;
+    z-index: 100000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition:
+        width 0.3s cubic-bezier(0.2, 0.8, 0.2, 1),
+        height 0.3s cubic-bezier(0.2, 0.8, 0.2, 1),
+        background 0.3s ease,
+        border-width 0.3s ease;
+}
+
+.cursor-label {
+    font-family: 'Courier New', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #000;
+    opacity: 0;
+    transform: scale(0.5);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    pointer-events: none;
+    white-space: nowrap;
+    user-select: none;
+}
+
+.cursor-ring.is-hover {
+    width: 58px;
+    height: 58px;
+    border-width: 2px;
+}
+.cursor-dot.is-hover { opacity: 0; }
+
+.cursor-ring.is-hover-big {
+    width: 78px;
+    height: 78px;
+    background: #fff;
+    border-color: #fff;
+}
+.cursor-dot.is-hover-big { opacity: 0; }
+.cursor-ring.is-hover-big .cursor-label {
+    opacity: 1;
+    transform: scale(1);
+}
+
+@media (hover: none), (pointer: coarse) {
+    .cursor-dot, .cursor-ring { display: none !important; }
+    *, *::before, *::after { cursor: auto !important; }
 }
 
 .head {
@@ -345,7 +421,7 @@ body {
 
 .diaporama-btn {
     position: absolute;
-    top: 190px;                  
+    top: 190px;
     transform: translateY(-50%);
     z-index: 5;
     width: 42px;
@@ -889,5 +965,5 @@ footer { background: #111; padding: 50px 40px 24px; }
     .projects-grid { grid-template-columns: 1fr; }
     .historiques-section { padding: 60px 16px; }
     .site-card img { height: 240px; }
-    .diaporama-btn { top: 120px; }  /* moitié de 240px */
+    .diaporama-btn { top: 120px; }
 }

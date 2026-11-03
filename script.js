@@ -1,4 +1,55 @@
 
+const cursorDot  = document.querySelector('.cursor-dot');
+const cursorRing = document.querySelector('.cursor-ring');
+
+if (cursorDot && cursorRing) {
+  let mouseX = window.innerWidth / 2;
+  let mouseY = window.innerHeight / 2;
+  let ringX  = mouseX;
+  let ringY  = mouseY;
+  const EASE = 0.16; 
+
+  cursorDot.style.left  = mouseX + 'px';
+  cursorDot.style.top   = mouseY + 'px';
+  cursorRing.style.left = mouseX + 'px';
+  cursorRing.style.top  = mouseY + 'px';
+
+  document.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+
+    cursorDot.style.left = mouseX + 'px';
+    cursorDot.style.top  = mouseY + 'px';
+
+    const smallTarget = e.target.closest('a, button, input, textarea, select, label');
+    const bigTarget   = e.target.closest('.project-card, .site-card, .project-image');
+
+    if (smallTarget) {
+      cursorRing.classList.add('is-hover');
+      cursorDot.classList.add('is-hover');
+      cursorRing.classList.remove('is-hover-big');
+      cursorDot.classList.remove('is-hover-big');
+    } else if (bigTarget) {
+      cursorRing.classList.add('is-hover-big');
+      cursorDot.classList.add('is-hover-big');
+      cursorRing.classList.remove('is-hover');
+      cursorDot.classList.remove('is-hover');
+    } else {
+      cursorRing.classList.remove('is-hover', 'is-hover-big');
+      cursorDot.classList.remove('is-hover', 'is-hover-big');
+    }
+  });
+
+  function animateRing() {
+    ringX += (mouseX - ringX) * EASE;
+    ringY += (mouseY - ringY) * EASE;
+    cursorRing.style.left = ringX + 'px';
+    cursorRing.style.top  = ringY + 'px';
+    requestAnimationFrame(animateRing);
+  }
+  animateRing();
+}
+
 const burger   = document.getElementById('burgerBtn');
 const navLinks = document.querySelector('.nav-links');
 
@@ -22,7 +73,7 @@ const skillObserver = new IntersectionObserver((entries) => {
     entry.target.classList.add('visible');
     const fill = entry.target.querySelector('.skill-fill');
     if (fill) setTimeout(() => { fill.style.width = fill.dataset.width + '%'; }, 200);
-    skillObserver.unobserve(entry.target);  
+    skillObserver.unobserve(entry.target);
   });
 }, { threshold: 0.2 });
 
@@ -76,7 +127,7 @@ slides.forEach((_, i) => {
 const dots = dotsBox.querySelectorAll('span');
 
 function goTo(i) {
-  current = (i + slides.length) % slides.length;  
+  current = (i + slides.length) % slides.length;
   track.style.transform = `translateX(-${current * 100}%)`;
   dots.forEach((d, n) => d.classList.toggle('active', n === current));
 }
