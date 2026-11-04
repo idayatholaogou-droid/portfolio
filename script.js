@@ -119,6 +119,19 @@ const btnNext = document.querySelector('.diaporama-btn.next');
 const dotsBox = document.querySelector('.diaporama-dots');
 let current = 0;
 
+const projectObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('is-visible');
+      projectObserver.unobserve(entry.target); 
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.project-card').forEach(card => {
+  projectObserver.observe(card);
+});
+
 slides.forEach((_, i) => {
   const dot = document.createElement('span');
   dot.addEventListener('click', () => goTo(i));
